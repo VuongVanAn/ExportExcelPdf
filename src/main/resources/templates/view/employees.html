@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="contaniner-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>
+					All Employees 
+					<a th:href="@{'/createExcel'}" style="float: right;"><img
+						th:src="@{/images/excel.png}" style="width: 40px;" /></a> 
+					<a th:href="@{'/createPdf'}" style="float: right;"><img
+						th:src="@{/images/pdf.png}" style="width: 40px; margin-left:10px;" /></a>			
+				</h2>
+				<div style="margin-top: 20px">
+					<table id="employee" class="table table-striped table-bordered"
+						style="width: 100%">
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="employ : ${employees}">
+								<td th:text="${employ.firstName}"></td>
+								<td th:text="${employ.lastName}"></td>
+								<td th:text="${employ.email}"></td>
+								<td th:text="${employ.phoneNumber}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
